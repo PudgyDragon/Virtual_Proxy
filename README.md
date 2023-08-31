@@ -20,9 +20,10 @@ Initial configuration changes will be made in the squid.conf file.
 ```
 nano /etc/squid/squid.conf
 ```
-By default, Squid uses port 3218. If you wish to use another port for your proxy, you can change the http_port setting with the port you wish to use. Also, adding `transparent` will prevent any modification of your requests and responses by Squid.
+By default, Squid uses port 3218. If you wish to use another port for your proxy, you can change the http_port setting with the port you wish to use. There are multiple modes you can use, including IP-Layer NAT interception that delivers traffic to the Squid port. You will have to set a second port with this argument.
 ```
-http_port 3218 transparent
+http_port 3218
+http_port 8080 intercept
 ```
 Another default of Squid is the denial of all http traffic. You can change this to all all by changing the http_access setting.
 ```
